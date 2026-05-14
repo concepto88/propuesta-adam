@@ -3,18 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Propuesta — Liza López</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<title>Strategic Product Partner — Liza López</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Syncopate:wght@400;700&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #faf8f4;
-    --ink: #1a1714;
-    --warm: #c96a2e;
-    --warm-light: rgba(201,106,46,0.12);
-    --cream: #efe9e2;
-    --dark: #202020;
-    --muted: #7a7468;
-    --rule: rgba(201,106,46,0.2);
+    --bg: #f5f0e8;
+    --surface: #ece6d9;
+    --surface2: #e5dfd0;
+    --warm: #b85c1e;
+    --warm-border: rgba(184,92,30,0.20);
+    --dark: #1a1410;
+    --ink: #2a2018;
+    --sage: #5e7a4e;
+    --muted: #7a6e5f;
+    --rule: rgba(184,92,30,0.15);
+    --cream: #f5f0e8;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -22,22 +25,22 @@
   body {
     background: var(--bg);
     color: var(--ink);
-    font-family: 'Jost', sans-serif;
+    font-family: 'DM Mono', monospace;
     font-weight: 300;
-    font-size: 15px;
+    font-size: 13px;
     line-height: 1.7;
-    max-width: 480px;
-    margin: 0 auto;
+    overflow-x: hidden;
   }
 
   /* COVER */
   .cover {
-    background: var(--dark);
-    padding: 52px 32px 44px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: 44px 32px;
+    background: var(--dark);
+    border-bottom: 1px solid rgba(184,92,30,0.22);
     position: relative;
     overflow: hidden;
   }
@@ -45,469 +48,630 @@
   .cover::before {
     content: '';
     position: absolute;
-    top: -80px; right: -80px;
-    width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(201,106,46,0.15) 0%, transparent 70%);
+    top: -120px; right: -120px;
+    width: 420px; height: 420px;
+    background: radial-gradient(circle, rgba(184,92,30,0.07) 0%, transparent 65%);
+    pointer-events: none;
   }
 
   .cover-tag {
-    font-family: 'DM Mono', monospace;
     font-size: 9px;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.28em;
     color: var(--warm);
     text-transform: uppercase;
+    opacity: 0.85;
+    position: relative;
+    z-index: 1;
   }
 
-  .cover-main {
-    padding: 60px 0 40px;
+  .cover-center {
+    padding: 56px 0 36px;
+    position: relative;
+    z-index: 1;
   }
 
   .cover-eyebrow {
-    font-family: 'DM Mono', monospace;
     font-size: 9px;
-    letter-spacing: 0.2em;
-    color: rgba(201,106,46,0.6);
+    letter-spacing: 0.22em;
+    color: rgba(184,92,30,0.5);
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
   }
 
   .cover-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 52px;
-    font-weight: 400;
-    line-height: 1.0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 12vw, 88px);
+    font-weight: 300;
+    line-height: 0.92;
     color: var(--cream);
-    margin-bottom: 4px;
+    margin-bottom: 6px;
+    letter-spacing: -0.02em;
   }
 
   .cover-title em {
     font-style: italic;
     color: var(--warm);
+    display: block;
   }
 
-  .cover-sub {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    font-style: italic;
-    color: rgba(239,233,226,0.3);
+  .cover-role {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    color: rgba(245,240,232,0.18);
+    text-transform: uppercase;
     margin-bottom: 40px;
+    margin-top: 12px;
   }
 
-  .cover-line {
-    width: 48px;
-    height: 1px;
-    background: var(--warm);
+  .cover-rule {
+    width: 48px; height: 1px;
+    background: linear-gradient(90deg, var(--warm), transparent);
+    margin-bottom: 20px;
     opacity: 0.5;
-    margin-bottom: 28px;
   }
 
   .cover-desc {
-    font-size: 14px;
-    line-height: 1.8;
-    color: rgba(239,233,226,0.5);
+    font-size: 13px;
+    line-height: 1.85;
+    color: rgba(245,240,232,0.42);
+    max-width: 480px;
   }
 
   .cover-bottom {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    position: relative;
+    z-index: 1;
+    padding-top: 28px;
+    border-top: 1px solid rgba(184,92,30,0.16);
   }
 
   .cover-from-label {
-    font-family: 'DM Mono', monospace;
     font-size: 8px;
     letter-spacing: 0.2em;
-    color: rgba(201,106,46,0.5);
+    color: rgba(184,92,30,0.38);
     text-transform: uppercase;
     margin-bottom: 4px;
   }
 
   .cover-from-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
     color: var(--cream);
   }
 
-  .cover-date {
-    font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    color: rgba(239,233,226,0.25);
+  .cover-from-name span { font-style: italic; color: var(--warm); }
+
+  .cover-for {
     text-align: right;
   }
 
-  /* SECTIONS */
+  /* CONTENT */
+  .content {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 28px 80px;
+  }
+
+  /* SECTION */
   .section {
-    padding: 48px 28px;
+    padding: 56px 0;
     border-bottom: 1px solid var(--rule);
   }
 
   .section:last-child { border-bottom: none; }
 
-  .section-tag {
-    font-family: 'DM Mono', monospace;
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+
+  .section-num {
     font-size: 8px;
     letter-spacing: 0.25em;
     color: var(--warm);
-    text-transform: uppercase;
-    margin-bottom: 16px;
-    opacity: 0.7;
+    opacity: 0.45;
+    flex-shrink: 0;
+  }
+
+  .section-line {
+    flex: 1; height: 1px;
+    background: var(--rule);
   }
 
   .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    font-weight: 400;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 300;
     line-height: 1.2;
     color: var(--ink);
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
 
-  .section-title em {
-    font-style: italic;
-    color: var(--warm);
-  }
+  .section-title em { font-style: italic; color: var(--warm); }
 
-  .body {
-    font-size: 14px;
-    line-height: 1.85;
-    color: #4a4540;
+  .body-text {
+    font-size: 13px;
+    line-height: 1.9;
+    color: var(--muted);
     margin-bottom: 14px;
   }
 
-  /* CONTEXT BOX */
-  .ctx {
-    background: var(--dark);
-    padding: 24px 24px;
+  /* ALERT */
+  .alert {
+    background: var(--surface2);
+    border-left: 3px solid var(--warm);
+    padding: 22px 26px;
     margin: 28px 0;
-    position: relative;
   }
 
-  .ctx::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 3px;
-    background: linear-gradient(90deg, var(--warm), #7c8761);
-  }
-
-  .ctx-label {
-    font-family: 'DM Mono', monospace;
+  .alert-label {
     font-size: 8px;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.22em;
     color: var(--warm);
     text-transform: uppercase;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     opacity: 0.8;
   }
 
-  .ctx-text {
-    font-size: 13.5px;
+  .alert-text {
+    font-size: 13px;
     line-height: 1.8;
-    color: rgba(239,233,226,0.65);
+    color: var(--muted);
   }
 
-  .ctx-text strong { color: var(--cream); font-weight: 500; }
+  .alert-text strong { color: var(--ink); font-weight: 400; }
 
-  /* LINES */
-  .lines { display: flex; flex-direction: column; gap: 3px; margin-top: 24px; }
+  /* LINE CARDS — stacked mobile-first */
+  .lines-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-top: 32px;
+  }
 
-  .line {
-    background: var(--cream);
+  .line-card {
+    background: var(--surface);
+    padding: 26px 28px;
+    position: relative;
     overflow: hidden;
   }
 
-  .line-header {
-    background: var(--dark);
-    padding: 18px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+  .line-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 2px;
+    background: linear-gradient(90deg, var(--warm), transparent);
+    opacity: 0.5;
   }
 
-  .line-left {}
+  .line-card.sage-top::before {
+    background: linear-gradient(90deg, var(--sage), transparent);
+    opacity: 0.6;
+  }
+
+  .line-card.no-excl {
+    background: var(--surface2);
+    border-left: 3px solid var(--sage);
+  }
+
+  .line-card.no-excl::before { display: none; }
 
   .line-tag {
-    font-family: 'DM Mono', monospace;
     font-size: 8px;
     letter-spacing: 0.2em;
     color: var(--warm);
     text-transform: uppercase;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
+    opacity: 0.7;
   }
 
+  .line-tag.sage { color: var(--sage); }
+
   .line-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 16px;
-    color: var(--cream);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--ink);
+    margin-bottom: 6px;
     line-height: 1.2;
   }
 
   .line-price {
-    font-family: 'DM Mono', monospace;
-    font-size: 15px;
+    font-size: 12px;
     color: var(--warm);
-    white-space: nowrap;
-    margin-left: 16px;
-    flex-shrink: 0;
-  }
-
-  .line-body {
-    padding: 16px 20px;
+    margin-bottom: 16px;
+    letter-spacing: 0.05em;
   }
 
   .line-items {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
   }
 
   .line-items li {
-    font-size: 13px;
+    font-size: 12.5px;
     color: var(--muted);
     display: flex;
     gap: 10px;
-    line-height: 1.5;
-  }
-
-  .line-items li::before {
-    content: '→';
-    color: var(--warm);
-    font-size: 11px;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-
-  .line-note {
-    font-size: 12px;
-    color: var(--muted);
-    font-style: italic;
-    margin-top: 12px;
-    padding-top: 12px;
-    border-top: 1px solid var(--rule);
-  }
-
-  .line-note strong { color: var(--warm); font-style: normal; }
-
-  /* TOTAL */
-  .total {
-    background: var(--dark);
-    padding: 32px 24px;
-    margin-top: 3px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .total::after {
-    content: '$5K';
-    position: absolute;
-    right: -10px; bottom: -20px;
-    font-family: 'Playfair Display', serif;
-    font-size: 100px;
-    font-weight: 700;
-    color: rgba(255,255,255,0.03);
-    line-height: 1;
-  }
-
-  .total-rows { margin-bottom: 20px; }
-
-  .total-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(201,106,46,0.1);
-    font-size: 13px;
-  }
-
-  .total-row:last-child { border-bottom: none; }
-
-  .total-row-label { color: rgba(239,233,226,0.5); }
-  .total-row-value {
-    font-family: 'DM Mono', monospace;
-    color: rgba(239,233,226,0.8);
-  }
-
-  .total-divider {
-    height: 1px;
-    background: rgba(201,106,46,0.25);
-    margin: 16px 0;
-  }
-
-  .total-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 8px;
-    letter-spacing: 0.2em;
-    color: rgba(201,106,46,0.6);
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
-
-  .total-value {
-    font-family: 'Playfair Display', serif;
-    font-size: 40px;
-    color: var(--warm);
-  }
-
-  .total-note {
-    font-size: 12px;
-    color: rgba(239,233,226,0.3);
-    margin-top: 4px;
-  }
-
-  /* MASTERPLAN */
-  .phases { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
-
-  .phase {
-    display: flex;
-    gap: 16px;
+    line-height: 1.55;
     align-items: flex-start;
   }
 
-  .phase-badge {
+  .line-items li::before {
+    content: '↳';
+    color: var(--warm);
+    font-size: 10px;
     flex-shrink: 0;
-    padding: 5px 10px;
-    background: var(--warm-light);
-    font-family: 'DM Mono', monospace;
-    font-size: 8px;
-    letter-spacing: 0.15em;
-    color: var(--warm);
-    text-transform: uppercase;
-    margin-top: 2px;
+    margin-top: 1px;
+    opacity: 0.5;
   }
 
-  .phase-title {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--ink);
-    margin-bottom: 4px;
-  }
+  .line-items li.sage::before { color: var(--sage); }
 
-  .phase-desc {
-    font-size: 13px;
+  .line-note {
+    font-size: 11.5px;
     color: var(--muted);
-    line-height: 1.6;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--rule);
+    font-style: italic;
+    opacity: 0.85;
+    line-height: 1.65;
   }
 
-  .phase-price {
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    color: var(--warm);
-    margin-top: 5px;
+  .line-legend {
+    font-size: 10.5px;
+    color: var(--muted);
+    margin-top: 10px;
+    opacity: 0.7;
+    font-style: italic;
   }
 
-  .precedent {
-    background: var(--warm-light);
-    border-left: 3px solid var(--warm);
-    padding: 20px 20px;
-    margin: 24px 0;
+  /* TOTAL BOX */
+  .total-box {
+    background: var(--dark);
+    padding: 36px 32px;
+    margin-top: 3px;
   }
 
-  .precedent-label {
-    font-family: 'DM Mono', monospace;
+  .total-label {
     font-size: 8px;
     letter-spacing: 0.2em;
-    color: var(--warm);
+    color: rgba(184,92,30,0.45);
     text-transform: uppercase;
     margin-bottom: 8px;
   }
 
-  .precedent-text {
-    font-size: 13.5px;
-    line-height: 1.7;
-    color: var(--ink);
+  .total-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 300;
+    color: var(--warm);
+    line-height: 1;
+    margin-bottom: 6px;
   }
 
-  /* CONDITIONS */
-  .conditions {
+  .total-sub {
+    font-size: 11px;
+    color: rgba(245,240,232,0.3);
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .total-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid rgba(184,92,30,0.12);
+  }
+
+  .total-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 0;
+    border-bottom: 1px solid rgba(184,92,30,0.08);
+    font-size: 12px;
+  }
+
+  .total-row:last-child { border-bottom: none; }
+  .total-row-label { color: rgba(245,240,232,0.38); }
+  .total-row-value { color: rgba(245,240,232,0.6); }
+
+  /* PROJECT BOX */
+  .project-box {
+    background: var(--surface);
+    padding: 32px 28px;
+    margin-top: 28px;
+    position: relative;
+  }
+
+  .project-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, var(--warm), var(--sage), transparent);
+  }
+
+  .project-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--ink);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .project-title em { font-style: italic; color: var(--warm); }
+
+  .phases-stack {
     display: flex;
     flex-direction: column;
     gap: 3px;
     margin-top: 24px;
   }
 
-  .cond {
-    background: var(--cream);
-    padding: 18px 20px;
+  .phase {
+    background: var(--bg);
+    padding: 16px 18px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .phase.highlight {
+    background: var(--warm);
+  }
+
+  .phase-badge {
+    font-size: 7px;
+    letter-spacing: 0.18em;
+    color: var(--warm);
+    text-transform: uppercase;
+    flex-shrink: 0;
+    width: 52px;
+    margin-top: 2px;
+    line-height: 1.4;
+  }
+
+  .phase.highlight .phase-badge { color: rgba(0,0,0,0.45); }
+
+  .phase-content {}
+
+  .phase-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    color: var(--ink);
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+
+  .phase.highlight .phase-name { color: var(--dark); font-size: 20px; }
+
+  .phase-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .phase.highlight .phase-desc { color: rgba(0,0,0,0.55); font-size: 11.5px; }
+
+  /* REVENUE */
+  .revenue-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-top: 28px;
+  }
+
+  .rev-card {
+    background: var(--warm);
+    padding: 28px 28px;
+  }
+
+  .rev-card.dim {
+    background: var(--surface2);
+  }
+
+  .rev-card.prec {
+    background: var(--dark);
+  }
+
+  .rev-label {
+    font-size: 8px;
+    letter-spacing: 0.2em;
+    color: rgba(0,0,0,0.38);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .rev-card.dim .rev-label { color: var(--muted); }
+  .rev-card.prec .rev-label { color: rgba(184,92,30,0.45); }
+
+  .rev-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--dark);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .rev-card.dim .rev-value { color: var(--warm); }
+  .rev-card.prec .rev-value { color: var(--warm); font-size: 38px; }
+
+  .rev-desc {
+    font-size: 12px;
+    color: rgba(0,0,0,0.52);
+    line-height: 1.65;
+  }
+
+  .rev-card.dim .rev-desc { color: var(--muted); }
+  .rev-card.prec .rev-desc { color: rgba(245,240,232,0.4); }
+
+  /* CONDITIONS */
+  .cond-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-top: 28px;
+  }
+
+  .cond-card {
+    background: var(--surface);
+    padding: 20px 24px;
     position: relative;
   }
 
-  .cond::before {
+  .cond-card::before {
     content: '';
     position: absolute;
     top: 0; left: 0;
-    width: 3px; height: 100%;
+    width: 2px; height: 100%;
     background: var(--warm);
-    opacity: 0.4;
+    opacity: 0.28;
   }
 
   .cond-title {
-    font-family: 'DM Mono', monospace;
     font-size: 8px;
     letter-spacing: 0.2em;
     color: var(--warm);
     text-transform: uppercase;
-    margin-bottom: 6px;
-    opacity: 0.9;
+    margin-bottom: 8px;
+    opacity: 0.8;
   }
 
   .cond-text {
-    font-size: 13px;
-    color: #5a5450;
-    line-height: 1.65;
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.7;
   }
 
   /* CLOSING */
   .closing {
     background: var(--dark);
-    padding: 48px 28px;
+    padding: 56px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(184,92,30,0.05) 0%, transparent 70%);
   }
 
   .closing-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 300;
     color: var(--cream);
     line-height: 1.3;
     margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
   }
 
-  .closing-title em { color: var(--warm); font-style: italic; }
+  .closing-title em { font-style: italic; color: var(--warm); }
 
   .closing-text {
-    font-size: 14px;
-    line-height: 1.85;
-    color: rgba(239,233,226,0.55);
-    margin-bottom: 14px;
+    font-size: 13px;
+    line-height: 1.9;
+    color: rgba(245,240,232,0.42);
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
   }
 
   .closing-footer {
-    margin-top: 40px;
-    padding-top: 28px;
-    border-top: 1px solid rgba(201,106,46,0.2);
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 44px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(184,92,30,0.16);
+    position: relative;
+    z-index: 1;
   }
 
   .closing-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 300;
     color: var(--cream);
   }
 
-  .closing-name span { color: var(--warm); font-style: italic; }
+  .closing-name span { font-style: italic; color: var(--warm); }
 
-  .closing-contact {
+  .closing-links {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    gap: 3px;
+    gap: 4px;
   }
 
-  .closing-contact a {
-    font-family: 'DM Mono', monospace;
+  .closing-links a {
     font-size: 10px;
-    color: rgba(239,233,226,0.35);
+    color: rgba(245,240,232,0.28);
     text-decoration: none;
+    letter-spacing: 0.08em;
+  }
+
+  /* DESKTOP ENHANCEMENTS */
+  @media (min-width: 768px) {
+    .cover { padding: 52px 72px; }
+    .content { max-width: 900px; padding: 0 72px 100px; }
+
+    .lines-stack {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .line-card.full { grid-column: 1 / -1; }
+
+    .phases-stack {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .revenue-stack {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .cond-stack {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .total-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      padding: 44px 52px;
+    }
+
+    .total-sub { margin-bottom: 0; }
+
+    .closing { padding: 72px; }
+
+    .closing-footer {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .closing-links { align-items: flex-end; }
   }
 </style>
 </head>
@@ -515,225 +679,269 @@
 
 <!-- COVER -->
 <div class="cover">
-  <div class="cover-tag">Propuesta Confidencial · Abril 2026</div>
+  <div class="cover-tag">Propuesta de Colaboración · Mayo 2026 · Confidencial</div>
 
-  <div class="cover-main">
+  <div class="cover-center">
     <div class="cover-eyebrow">De Liza López · Para Adam & Michelle</div>
-    <h1 class="cover-title">Strategic<br><em>Product</em><br>Partner</h1>
-    <div class="cover-sub">Créetelo® · Become It</div>
-    <div class="cover-line"></div>
-    <p class="cover-desc">Una propuesta clara de cómo puede verse nuestra colaboración a partir de ahora — con scope definido, compensación justa, y un producto que puede cambiar el trayecto de Créetelo® en 2026.</p>
+    <h1 class="cover-title">
+      Strategic
+      <em>Product</em>
+      Partner
+    </h1>
+    <div class="cover-role">Créetelo® · Become It · Doers Circle™</div>
+    <div class="cover-rule"></div>
+    <p class="cover-desc">Lo que construyo tiene valor comercial directo. Esta propuesta define con precisión qué aporto, cómo se compensa, y bajo qué condiciones — para que podamos trabajar con claridad y sin ambigüedad.</p>
   </div>
 
   <div class="cover-bottom">
     <div>
       <div class="cover-from-label">Preparado por</div>
-      <div class="cover-from-name">Liza López</div>
+      <div class="cover-from-name">Liza <span>López</span></div>
     </div>
-    <div class="cover-date">Abril 2026<br>Confidencial</div>
+    <div class="cover-for">
+      <div class="cover-from-label">Para</div>
+      <div class="cover-from-name" style="font-size:16px; color:rgba(245,240,232,0.4);">Adam & Michelle</div>
+    </div>
   </div>
 </div>
 
-<!-- CONTEXTO -->
-<div class="section">
-  <div class="section-tag">El punto de partida</div>
-  <h2 class="section-title">Casi tres años <em>siendo el centro</em></h2>
+<!-- CONTENT -->
+<div class="content">
 
-  <p class="body">Llevo casi tres años siendo el centro operativo de Créetelo®. He amado gran parte de ese camino — CréeteloCON™, los presenciales de Miami, Doers Circle™, acompañar a Michelle en sus charlas, y más recientemente, desarrollar Copiloto Doers desde cero.</p>
+  <!-- 01 CONTEXTO -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <div class="section-line"></div>
+    </div>
+    <h2 class="section-title">Un rol distinto de <em>participación</em></h2>
+    <p class="body-text">Llevo casi tres años siendo la columna vertebral operativa y tecnológica de este negocio. Lo que propongo no es una sociedad tradicional — entiendo que el negocio se sostiene bajo la marca personal de Michelle, que amo y respeto, y que eso significa que no tendré un poder de decisión a nivel de marca. Lo que sí tendré es criterio y voz en las decisiones a nivel de producto digital. Ese es el rol que quiero y el que tiene sentido para los dos.</p>
+    <p class="body-text">A partir de ahora, salgo de mi rol como COO para convertirme en Strategic Product Partner. Este rol se centra en visión tecnológica, arquitectura de soluciones AI y acompañamiento estratégico — no en la gestión operativa, que requerirá una persona dedicada que la absorba.</p>
+    <p class="body-text">La conceptualización y el desarrollo de nuevos productos no están incluidos en el fee mensual. Son proyectos independientes con su propia compensación.</p>
 
-  <p class="body">El rol que tengo hoy ya no se sostiene como está — ni para el negocio ni para mí. Esta propuesta no es una salida. Es una restructuración que creo puede ser buena para los dos.</p>
+    <div class="alert">
+      <div class="alert-label">El contexto que no puede ignorarse</div>
+      <p class="alert-text">Construí Copiloto Doers™ desde cero — sin fee de proyecto, sin compensación adicional — dentro de un retainer recortado un 30% desde Agosto 2025 sin reducción de scope. <strong>Ese patrón cambia a partir de este acuerdo.</strong> Todo desarrollo nuevo tiene su propia compensación, acordada antes de arrancar.</p>
+    </div>
+  </section>
 
-  <div class="ctx">
-    <div class="ctx-label">El contexto que no podemos ignorar</div>
-    <p class="ctx-text">Desde Agosto 2025, mi compensación bajó un 30% — de <strong>$7,500 a $5,250/mes</strong> — sin reducción de scope. Por el contrario, doblé esfuerzos y capacidad operativa. Eso representa <strong>$18,000 absorbidos</strong> en 8 meses. Adicionalmente, Copiloto Doers™ fue construido y se mantiene con más de 10 horas semanales sin compensación adicional.</p>
-  </div>
-</div>
+  <!-- 02 LÍNEAS -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <div class="section-line"></div>
+    </div>
+    <h2 class="section-title">Mi scope — <em>tres líneas claras</em></h2>
+    <p class="body-text">Mi participación en el ecosistema se estructura en tres líneas con compensación propia. Todo lo que no está aquí explícitamente se conversa y se cotiza por separado.</p>
 
-<!-- LÍNEAS -->
-<div class="section">
-  <div class="section-tag">La propuesta</div>
-  <h2 class="section-title">Cuatro líneas <em>claras</em></h2>
-  <p class="body">En lugar de un rol catch-all, propongo desempaquetar lo que hago en cuatro líneas con scope y compensación propios.</p>
+    <div class="lines-stack">
 
-  <div class="lines">
-
-    <div class="line">
-      <div class="line-header">
-        <div class="line-left">
-          <div class="line-tag">Línea 01</div>
-          <div class="line-name">Strategic Partner</div>
-        </div>
-        <div class="line-price">$3,000/mes</div>
-      </div>
-      <div class="line-body">
+      <div class="line-card full">
+        <div class="line-tag">Línea 01</div>
+        <div class="line-name">Strategic Product Partner</div>
+        <div class="line-price">$3,000 / mes</div>
         <ul class="line-items">
-          <li>Acompañante de viaje de Michelle en conferencias (gastos cubiertos por ustedes)</li>
-          <li>Coordinación y presencia en encuentros presenciales Miami — Créetelo® e Inner Circle™</li>
-          <li>Canal async disponible Lunes–Viernes</li>
-          <li>Visión estratégica de producto y criterio en decisiones clave</li>
-          <li>Reuniones semanales con ustedes y el equipo</li>
+          <li>Reuniones semanales de alineación estratégica con Adam y Michelle, o equipo de consultoría contratado como Startlab</li>
+          <li>Canal async L–V para decisiones de producto y criterio estratégico</li>
+          <li>Visión y arquitectura de soluciones AI del ecosistema</li>
+          <li>Apoyo en coordinación dentro de GHL para presenciales Miami — sin gestión administrativa ni logística <span style="opacity:0.55; font-style:italic;">(*)</span></li>
+          <li>Acompañante de viaje para conferencias de Michelle cuando se necesite y no interfiera con compromisos personales <span style="opacity:0.55; font-style:italic;">(*)</span></li>
         </ul>
-        <p class="line-note">Puede evolucionar post Junio 2026 a versión lean de <strong>$2,000/mes</strong> — sin reuniones semanales de equipo, manteniendo acompañamiento estratégico y presenciales.</p>
+        <div class="line-legend">(*) Excepción necesaria no relacionada al partnership de producto.</div>
       </div>
-    </div>
 
-    <div class="line">
-      <div class="line-header">
-        <div class="line-left">
-          <div class="line-tag">Línea 02</div>
-          <div class="line-name">Copiloto Doers™</div>
-        </div>
-        <div class="line-price">$500/mes</div>
-      </div>
-      <div class="line-body">
+      <div class="line-card">
+        <div class="line-tag">Línea 02</div>
+        <div class="line-name">Co-facilitadora Doers & Inner Circle™</div>
+        <div class="line-price">$1,000 / mes</div>
         <ul class="line-items">
-          <li>Corrección de errores reportados por usuarios</li>
-          <li>Actualizaciones dentro del scope acordado</li>
-          <li>Máximo 8 horas mensuales — lo que exceda se factura aparte</li>
+          <li>Participación como facilitadora en sesiones grupales en vivo</li>
+          <li>Apoyo en masterclasses de lanzamiento junto a Michelle</li>
         </ul>
+        <div class="line-note">No incluye participación en grupos de WhatsApp ni sesiones 1:1. De requerirse, sesiones 1:1 tienen tarifa especial de $150 mínimo por sesión. Fee regular actual: $300/sesión.</div>
       </div>
-    </div>
 
-    <div class="line">
-      <div class="line-header">
-        <div class="line-left">
-          <div class="line-tag">Línea 03</div>
-          <div class="line-name">Doers & Inner Circle™ Co-coaching</div>
-        </div>
-        <div class="line-price">$1,500/mes</div>
-      </div>
-      <div class="line-body">
+      <div class="line-card sage-top">
+        <div class="line-tag sage">Línea 03</div>
+        <div class="line-name">Mantenimiento Ecosistema AI</div>
+        <div class="line-price">Fee mensual por producto activo</div>
         <ul class="line-items">
-          <li>Sesiones semanales de coaching de los programas</li>
-          <li>WhatsApp grupal de Doers e Inners</li>
-          <li>Consultas privadas vía WhatsApp L–V</li>
-          <li>No incluye sesiones 1:1 individuales</li>
-          <li>Vigente mientras los programas estén activos en 2026</li>
+          <li class="sage">Copiloto Doers™ — correcciones técnicas, evolución, VS Code · <strong style="color:var(--ink); font-weight:400;">$500/mes</strong></li>
+          <li class="sage">Créetelo® AI — cuando esté en producción · <strong style="color:var(--ink); font-weight:400;">Fee a definir post-lanzamiento</strong></li>
+          <li class="sage">Horas ilimitadas de soporte técnico los primeros 2 meses por producto</li>
+        </ul>
+        <div class="line-note" style="border-top-color:rgba(94,122,78,0.2);">La gestión diaria de contenido y/o admin de las herramientas es del equipo operativo. Mi rol es técnico o conceptual.</div>
+      </div>
+
+      <div class="line-card no-excl">
+        <div class="line-tag sage">Condición transversal — Sin exclusividad</div>
+        <div class="line-name" style="font-size:16px; color:var(--ink); margin-bottom:14px;">No negociable bajo ningún esquema</div>
+        <ul class="line-items">
+          <li class="sage">Esta relación no puede ser exclusiva bajo ningún esquema de compensación</li>
+          <li class="sage">Libertad de construir y crecer con proyectos propios bajo mi marca personal</li>
         </ul>
       </div>
+
     </div>
 
-  </div>
-
-  <div class="total">
-    <div class="total-rows">
-      <div class="total-row">
-        <span class="total-row-label">Strategic Partner</span>
-        <span class="total-row-value">$3,000</span>
-      </div>
-      <div class="total-row">
-        <span class="total-row-label">Copiloto Doers™</span>
-        <span class="total-row-value">$500</span>
-      </div>
-      <div class="total-row">
-        <span class="total-row-label">Doers & Inner Circle™</span>
-        <span class="total-row-value">$1,500</span>
-      </div>
-      <div class="total-row">
-        <span class="total-row-label">Desarrollo Créetelo AI</span>
-        <span class="total-row-value">Ver Línea 04 →</span>
-      </div>
-    </div>
-    <div class="total-divider"></div>
-    <div class="total-label">Total mensual recurrente</div>
-    <div class="total-value">$5,000/mes</div>
-    <div class="total-note">+ fees de proyecto del Masterplan Créetelo AI</div>
-  </div>
-</div>
-
-<!-- MASTERPLAN -->
-<div class="section">
-  <div class="section-tag">Línea 04</div>
-  <h2 class="section-title">Masterplan <em>Créetelo® AI</em></h2>
-
-  <p class="body">El producto que justifica el relanzamiento a $97/mes — que crea una razón real para que nuevos miembros entren y los actuales se queden sin depender de la presencia constante de Michelle.</p>
-
-  <p class="body">No es parte del rol de Strategic Partner. Es un proyecto independiente con su propia compensación.</p>
-
-  <div class="precedent">
-    <div class="precedent-label">Precedente establecido</div>
-    <p class="precedent-text">En su momento propusiste una partnership. Ese modelo tiene sentido aquí — para un producto de mayor impacto y complejidad. Me he convertido en la columna vertebral operativa del negocio.</p>
-  </div>
-
-  <div class="phases">
-    <div class="phase">
-      <div class="phase-badge">Discovery</div>
+    <div class="total-box">
       <div>
-        <div class="phase-title">Arquitectura del producto</div>
-        <p class="phase-desc">Definir qué se construye, en qué orden, con qué integraciones. Duración: 1 semana.</p>
-        <div class="phase-price">Fee aplicado como crédito al desarrollo</div>
+        <div class="total-label">Total mensual recurrente</div>
+        <div class="total-value">$4,500</div>
+        <div class="total-sub">Base garantizada · Sin proyectos de desarrollo ni revenue share</div>
+      </div>
+      <div class="total-rows">
+        <div class="total-row">
+          <span class="total-row-label">Strategic Product Partner</span>
+          <span class="total-row-value">$3,000</span>
+        </div>
+        <div class="total-row">
+          <span class="total-row-label">Co-facilitadora programas</span>
+          <span class="total-row-value">$1,000</span>
+        </div>
+        <div class="total-row">
+          <span class="total-row-label">Copiloto Doers™ mantenimiento</span>
+          <span class="total-row-value">$500</span>
+        </div>
+        <div class="total-row">
+          <span class="total-row-label">Créetelo® AI mantenimiento</span>
+          <span class="total-row-value">A definir</span>
+        </div>
+        <div class="total-row">
+          <span class="total-row-label">Proyectos de desarrollo</span>
+          <span class="total-row-value">Por proyecto</span>
+        </div>
       </div>
     </div>
-    <div class="phase">
-      <div class="phase-badge">Desarrollo</div>
-      <div>
-        <div class="phase-title">Construcción e implementación</div>
-        <p class="phase-desc">Se desarrolla en mis cuentas. Gastos de consumo a cargo de Créetelo®. Al finalizar se migra a sus cuentas.</p>
-        <div class="phase-price">$1,000 – $2,000 por definir post-Discovery</div>
-      </div>
-    </div>
-    <div class="phase">
-      <div class="phase-badge">Retainer</div>
-      <div>
-        <div class="phase-title">Mantenimiento post-lanzamiento</div>
-        <p class="phase-desc">Soporte, correcciones y evolución. Si salgo del proyecto, queda hasta donde llegó.</p>
-        <div class="phase-price">$800/mes post-lanzamiento</div>
-      </div>
-    </div>
-    <div class="phase">
-      <div class="phase-badge">Revenue</div>
-      <div>
-        <div class="phase-title">Participación en ventas</div>
-        <p class="phase-desc">El crecimiento de membresías post-implementación es directamente atribuible a este producto.</p>
-        <div class="phase-price">5% sobre revenue mensual de Créetelo® post-implementación</div>
-      </div>
-    </div>
-  </div>
-</div>
+  </section>
 
-<!-- CONDITIONS -->
-<div class="section">
-  <div class="section-tag">Para que funcione</div>
-  <h2 class="section-title">Las <em>condiciones</em></h2>
+  <!-- 03 PROYECTOS -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <div class="section-line"></div>
+    </div>
+    <h2 class="section-title">Copiloto v2 & Créetelo® AI — <em>proyectos independientes</em></h2>
+    <p class="body-text">El rediseño de Copiloto Doers™ y el desarrollo del ecosistema AI de Créetelo® no están incluidos en el retainer mensual. Son proyectos de desarrollo de producto con valor comercial directo. Se estructuran y compensan por separado. Ningún desarrollo arranca sin un acuerdo claro entre ambas partes primero.</p>
 
-  <div class="conditions">
-    <div class="cond">
-      <div class="cond-title">Acuerdo escrito</div>
-      <p class="cond-text">Scope, compensación y cláusula de salida por escrito antes de arrancar cualquier línea.</p>
+    <div class="project-box">
+      <div class="project-title">Copiloto <em>Doers™ v2</em> — versión demo para el 27</div>
+      <p class="body-text" style="font-size:12.5px; margin-bottom:0; color:var(--muted);">Rediseño completo: dos chats separados (formación + consulta), journey digital paso a paso, métricas de progreso por módulo, onboarding, grabación del demo por Liza. Estimado: 8–10 días de trabajo de arquitectura y desarrollo AI.</p>
+
+      <div class="phases-stack">
+        <div class="phase">
+          <div class="phase-badge">Fase 01</div>
+          <div class="phase-content">
+            <div class="phase-name">Arquitectura & diseño</div>
+            <p class="phase-desc">Definición de los dos chats, flujo de usuario, prompts maestros, módulos digitalizados.</p>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="phase-badge">Fase 02</div>
+          <div class="phase-content">
+            <div class="phase-name">Desarrollo & configuración</div>
+            <p class="phase-desc">Construcción, integración de metodología, métricas y seguimiento de progreso.</p>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="phase-badge">Fase 03</div>
+          <div class="phase-content">
+            <div class="phase-name">Demo & onboarding</div>
+            <p class="phase-desc">Grabación del demo por Liza, documento de onboarding, pruebas finales.</p>
+          </div>
+        </div>
+        <div class="phase highlight">
+          <div class="phase-badge">Fee</div>
+          <div class="phase-content">
+            <div class="phase-name">$4,000</div>
+            <p class="phase-desc">Pago acordado antes de arrancar. Gastos de consumo AI por cuenta del negocio.</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="cond">
-      <div class="cond-title">Disponibilidad definida</div>
-      <p class="cond-text">Canal async Lunes–Viernes. Fines de semana fuera de scope para todas las líneas.</p>
+
+    <div class="alert" style="border-left-color:var(--sage); margin-top:3px;">
+      <div class="alert-label" style="color:var(--sage);">Créetelo® AI — cuando llegue el momento</div>
+      <p class="alert-text">El desarrollo del ecosistema AI de Créetelo® seguirá la misma lógica: Discovery → Desarrollo → Mantenimiento, con fee de proyecto a definir.</p>
     </div>
-    <div class="cond">
-      <div class="cond-title">Sin operación cotidiana</div>
-      <p class="cond-text">Mi rol como COO ejecutora termina con esta restructuración. Créetelo® necesita un perfil junior — puedo ayudar a definir ese rol.</p>
+  </section>
+
+  <!-- 04 REVENUE SHARE -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <div class="section-line"></div>
     </div>
-    <div class="cond">
-      <div class="cond-title">IP del Masterplan</div>
-      <p class="cond-text">Desarrollo en mis cuentas hasta la migración. Gastos de consumo a cargo de Créetelo®. Una vez migrado, el producto es de ustedes.</p>
+    <h2 class="section-title">Participación en <em>revenue</em></h2>
+    <p class="body-text">Los productos que construyo son el motor de monetización del negocio. Mi participación en el revenue es independiente del retainer mensual y es parte estructural del acuerdo.</p>
+
+    <div class="revenue-stack">
+      <div class="rev-card">
+        <div class="rev-label">Doers Circle™</div>
+        <div class="rev-value">10%</div>
+        <p class="rev-desc">Sobre revenue mensual total generado. El Copiloto que construí es columna vertebral del producto.</p>
+      </div>
+      <div class="rev-card dim">
+        <div class="rev-label">Créetelo® AI — post lanzamiento</div>
+        <div class="rev-value">10%</div>
+        <p class="rev-desc">Sobre revenue mensual una vez implementado. Se activa desde el primer mes de ventas.</p>
+      </div>
+      <div class="rev-card prec">
+        <div class="rev-label">Precedente establecido</div>
+        <div class="rev-value">12.5%</div>
+        <p class="rev-desc">En los inicios del Doers Circle™ me ofreciste un 12.5% de participación que nunca se concretó porque desistieron de una participación en sociedad. Este 10% ya es una concesión sobre ese precedente.</p>
+      </div>
     </div>
-    <div class="cond">
-      <div class="cond-title">Fecha de inicio</div>
-      <p class="cond-text">Nuevo marco arranca el 1 de Junio 2026. Transición documentada durante Mayo.</p>
+  </section>
+
+  <!-- 05 CONDICIONES -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <div class="section-line"></div>
     </div>
-    <div class="cond">
-      <div class="cond-title">Revisión en 90 días</div>
-      <p class="cond-text">Conversación de revisión al finalizar el tercer mes para evaluar scope y compensación.</p>
+    <h2 class="section-title">Las condiciones que <em>hacen esto posible</em></h2>
+
+    <div class="cond-stack">
+      <div class="cond-card">
+        <div class="cond-title">Acuerdo primero</div>
+        <p class="cond-text">Ningún desarrollo arranca sin un acuerdo claro entre ambas partes. Scope, compensación, revenue share, exclusividad y cláusula de salida — todo por escrito sería ideal antes del día uno.</p>
+      </div>
+      <div class="cond-card">
+        <div class="cond-title">Sin exclusividad</div>
+        <p class="cond-text">Libertad total de trabajar con otros clientes, desarrollar mi marca personal y construir soluciones estratégicas para negocios. Condición no negociable bajo cualquier esquema.</p>
+      </div>
+      <div class="cond-card">
+        <div class="cond-title">Disponibilidad definida</div>
+        <p class="cond-text">Canal async L–V. Fines de semana fuera de scope. Las sesiones de desarrollo AI se coordinan con anticipación y sin interrupciones para que sean realmente efectivas.</p>
+      </div>
+      <div class="cond-card">
+        <div class="cond-title">IP de herramientas genéricas</div>
+        <p class="cond-text">Los frameworks, skills y arquitecturas de prompts que desarrollo como metodología propia son míos. El producto específico entrenado con el contenido de la marca es de Become It.</p>
+      </div>
+      <div class="cond-card">
+        <div class="cond-title">Gastos de consumo AI</div>
+        <p class="cond-text">Las cuentas de desarrollo corren inicialmente a mi nombre. Los costos de APIs y plataformas corren por Créetelo® mensualmente. Solicitaré plataformas y planes conforme sean necesarios y aprobados.</p>
+      </div>
+      <div class="cond-card">
+        <div class="cond-title">Revisión en 90 días</div>
+        <p class="cond-text">Una conversación formal a los 90 días de iniciado el nuevo marco para evaluar scope, compensación y ajustes según el crecimiento del negocio.</p>
+      </div>
     </div>
-  </div>
+  </section>
+
 </div>
 
 <!-- CLOSING -->
 <div class="closing">
-  <h2 class="closing-title">Lo que <em>no cambia</em></h2>
-  <p class="closing-text">Reconozco el potencial de este proyecto, la distribución que significa el ecosistema de Michelle, el crecimiento que he tenido con ustedes en casi tres años, y el amor profundo que nos tenemos.</p>
-  <p class="closing-text">Aún así, la realidad de todos apremia. Esta conversación es necesaria — es, de una forma u otra, la tercera vez que la tenemos. Mi meta es que sea la última vez sin un acuerdo claro detrás.</p>
-  <p class="closing-text">Un marco claro hoy es lo que nos permite trabajar bien mañana.</p>
+  <h2 class="closing-title">Lo que <em>sí quiero</em> construir con ustedes</h2>
+  <p class="closing-text">Creo genuinamente en el potencial de este proyecto. Un ecosistema AI sobre la metodología de Michelle, con el reach que tiene su audiencia y el criterio tecnológico que yo aporto — eso puede ser algo extraordinario.</p>
+  <p class="closing-text">Lo que necesito para poder construirlo bien es exactamente lo que está en este documento: claridad, compensación justa, y la libertad de seguir creciendo en paralelo. No pido más de lo que aporto — pido que lo que aporto sea reconocido como lo que es.</p>
+  <p class="closing-text">Esta propuesta es una invitación a construir algo grande sobre bases sólidas.</p>
 
   <div class="closing-footer">
     <div class="closing-name">Liza <span>López</span></div>
-    <div class="closing-contact">
+    <div class="closing-links">
       <a href="mailto:hola@lizalopez.com">hola@lizalopez.com</a>
       <a href="https://linkedin.com/in/lizaflopez/">linkedin.com/in/lizaflopez</a>
     </div>
