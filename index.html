@@ -10,16 +10,16 @@
     --bg: #f5f0e8;
     --surface: #ece6d9;
     --surface2: #e5dfd0;
-    --dark: #1a1410;
-    --ink: #2a2018;
+    --surface3: #ddd7c8;
     --warm: #b85c1e;
     --warm-dim: rgba(184,92,30,0.10);
-    --warm-border: rgba(184,92,30,0.20);
+    --warm-border: rgba(184,92,30,0.22);
+    --ink: #1e1810;
+    --ink-mid: #3a2e22;
     --sage: #5e7a4e;
     --sage-dim: rgba(94,122,78,0.12);
     --muted: #7a6e5f;
     --rule: rgba(184,92,30,0.14);
-    --cream: #f5f0e8;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -29,28 +29,29 @@
     color: var(--ink);
     font-family: 'Jost', sans-serif;
     font-weight: 300;
-    font-size: 14px;
-    line-height: 1.7;
+    font-size: 15px;
+    line-height: 1.75;
   }
 
-  /* COVER */
+  /* COVER — crema con acento */
   .cover {
-    background: var(--dark);
+    background: var(--surface2);
     padding: 44px 32px;
-    min-height: 60vh;
+    min-height: 55vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
     overflow: hidden;
+    border-bottom: 3px solid var(--warm);
   }
 
   .cover::before {
     content: '';
     position: absolute;
-    top: -100px; right: -100px;
-    width: 380px; height: 380px;
-    background: radial-gradient(circle, rgba(184,92,30,0.08) 0%, transparent 65%);
+    top: -80px; right: -80px;
+    width: 360px; height: 360px;
+    background: radial-gradient(circle, rgba(184,92,30,0.06) 0%, transparent 65%);
     pointer-events: none;
   }
 
@@ -69,7 +70,7 @@
     font-family: 'DM Mono', monospace;
     font-size: 9px;
     letter-spacing: 0.22em;
-    color: rgba(184,92,30,0.5);
+    color: var(--muted);
     text-transform: uppercase;
     margin-bottom: 20px;
   }
@@ -79,7 +80,7 @@
     font-size: clamp(44px, 11vw, 80px);
     font-weight: 300;
     line-height: 0.92;
-    color: var(--cream);
+    color: var(--ink);
     letter-spacing: -0.02em;
     margin-bottom: 6px;
   }
@@ -90,18 +91,19 @@
     font-family: 'DM Mono', monospace;
     font-size: 9px;
     letter-spacing: 0.2em;
-    color: rgba(245,240,232,0.2);
+    color: var(--muted);
     text-transform: uppercase;
     margin-top: 14px;
-    margin-bottom: 36px;
+    margin-bottom: 32px;
+    opacity: 0.6;
   }
 
-  .cover-rule { width: 44px; height: 1px; background: var(--warm); opacity: 0.4; margin-bottom: 18px; }
+  .cover-rule { width: 44px; height: 2px; background: var(--warm); margin-bottom: 18px; opacity: 0.5; }
 
   .cover-desc {
-    font-size: 13.5px;
+    font-size: 14.5px;
     line-height: 1.85;
-    color: rgba(245,240,232,0.4);
+    color: var(--muted);
     max-width: 460px;
   }
 
@@ -110,23 +112,24 @@
     justify-content: space-between;
     align-items: flex-end;
     padding-top: 28px;
-    border-top: 1px solid rgba(184,92,30,0.16);
+    border-top: 1px solid var(--rule);
   }
 
   .cover-from-label {
     font-family: 'DM Mono', monospace;
     font-size: 8px;
     letter-spacing: 0.2em;
-    color: rgba(184,92,30,0.38);
+    color: var(--muted);
     text-transform: uppercase;
     margin-bottom: 4px;
+    opacity: 0.7;
   }
 
   .cover-from-name {
     font-family: 'Cormorant Garamond', serif;
     font-size: 22px;
     font-weight: 300;
-    color: var(--cream);
+    color: var(--ink);
   }
 
   .cover-from-name span { font-style: italic; color: var(--warm); }
@@ -145,7 +148,7 @@
     font-size: 8px;
     letter-spacing: 0.25em;
     color: var(--warm);
-    opacity: 0.45;
+    opacity: 0.5;
     flex-shrink: 0;
   }
 
@@ -153,7 +156,7 @@
 
   .section-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: 300;
     line-height: 1.2;
     color: var(--ink);
@@ -162,104 +165,77 @@
 
   .section-title em { font-style: italic; color: var(--warm); }
 
-  .body-text { font-size: 14px; line-height: 1.85; color: var(--muted); margin-bottom: 12px; }
+  .body-text { font-size: 14.5px; line-height: 1.85; color: var(--muted); margin-bottom: 12px; }
 
-  /* MARKET COMPARISON */
-  .market-box {
-    background: var(--dark);
-    padding: 32px 28px;
-    margin-top: 28px;
-    position: relative;
-    overflow: hidden;
+  /* MARKET TABLE */
+  .market-table { margin-top: 28px; border: 1px solid var(--rule); overflow: hidden; }
+
+  .market-header {
+    background: var(--surface3);
+    padding: 12px 20px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
   }
 
-  .market-box::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 2px;
-    background: linear-gradient(90deg, var(--warm), var(--sage), transparent);
-  }
-
-  .market-label {
+  .market-header-label {
     font-family: 'DM Mono', monospace;
     font-size: 8px;
     letter-spacing: 0.22em;
-    color: rgba(184,92,30,0.55);
+    color: var(--muted);
     text-transform: uppercase;
-    margin-bottom: 20px;
+    opacity: 0.8;
   }
-
-  .market-rows { display: flex; flex-direction: column; gap: 2px; }
 
   .market-row {
     display: grid;
     grid-template-columns: 1fr auto;
-    gap: 16px;
-    padding: 14px 16px;
-    background: rgba(255,255,255,0.03);
+    gap: 20px;
+    padding: 16px 20px;
+    border-top: 1px solid var(--rule);
     align-items: center;
+    background: var(--bg);
   }
 
-  .market-row.highlight { background: var(--warm); }
-  .market-row.highlight .market-role { color: var(--dark); }
-  .market-row.highlight .market-range { color: var(--dark); }
-  .market-row.highlight .market-note { color: rgba(0,0,0,0.55); }
+  .market-row:nth-child(even) { background: var(--surface); }
 
-  .market-role {
-    font-size: 13.5px;
-    color: rgba(245,240,232,0.75);
-    line-height: 1.4;
-  }
-
-  .market-note {
-    font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    color: rgba(245,240,232,0.3);
+  .market-row.highlight {
+    background: var(--warm);
+    border-top: none;
     margin-top: 2px;
   }
 
-  .market-range {
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    color: var(--warm);
-    text-align: right;
-    white-space: nowrap;
-  }
+  .market-role { font-size: 14px; color: var(--ink-mid); line-height: 1.4; }
+  .market-note { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); margin-top: 2px; }
+  .market-range { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--warm); text-align: right; white-space: nowrap; font-weight: 400; }
 
-  .market-row.highlight .market-range { color: var(--dark); font-size: 13px; font-weight: 400; }
+  .market-row.highlight .market-role { color: #fff; font-weight: 500; }
+  .market-row.highlight .market-note { color: rgba(255,255,255,0.65); }
+  .market-row.highlight .market-range { color: #fff; font-size: 14px; }
 
   /* KPI STACK */
   .kpi-stack { display: flex; flex-direction: column; gap: 3px; margin-top: 28px; }
 
   .kpi-card {
     background: var(--surface);
-    padding: 22px 24px;
+    padding: 24px 26px;
     position: relative;
+    border-left: 3px solid var(--warm);
   }
 
-  .kpi-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 3px; height: 100%;
-    background: var(--warm);
-    opacity: 0.35;
-  }
-
-  .kpi-card.sage::before { background: var(--sage); opacity: 0.5; }
+  .kpi-card.sage { border-left-color: var(--sage); }
 
   .kpi-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     gap: 16px;
   }
 
   .kpi-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 300;
     color: var(--ink);
     line-height: 1.2;
@@ -271,32 +247,34 @@
     letter-spacing: 0.15em;
     color: var(--warm);
     text-transform: uppercase;
-    opacity: 0.7;
+    opacity: 0.8;
     white-space: nowrap;
     flex-shrink: 0;
-    margin-top: 3px;
+    margin-top: 4px;
+    background: var(--warm-dim);
+    padding: 4px 8px;
   }
 
-  .kpi-freq.sage { color: var(--sage); }
+  .kpi-freq.sage { color: var(--sage); background: var(--sage-dim); }
 
-  .kpi-items { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .kpi-items { list-style: none; display: flex; flex-direction: column; gap: 8px; }
 
   .kpi-items li {
-    font-size: 13px;
+    font-size: 14px;
     color: var(--muted);
     display: flex;
-    gap: 10px;
-    line-height: 1.5;
+    gap: 12px;
+    line-height: 1.55;
     align-items: flex-start;
   }
 
   .kpi-items li::before {
-    content: '↳';
+    content: '→';
     color: var(--warm);
-    font-size: 10px;
+    font-size: 12px;
     flex-shrink: 0;
     margin-top: 1px;
-    opacity: 0.5;
+    opacity: 0.6;
   }
 
   .kpi-items li.sage::before { color: var(--sage); }
@@ -306,132 +284,104 @@
 
   .comp-card {
     background: var(--surface);
-    padding: 18px 22px;
+    padding: 20px 24px;
     display: flex;
-    gap: 16px;
+    gap: 18px;
     align-items: flex-start;
   }
 
-  .comp-icon {
+  .comp-num {
     font-family: 'DM Mono', monospace;
-    font-size: 8px;
+    font-size: 9px;
     color: var(--warm);
-    opacity: 0.6;
+    opacity: 0.55;
     flex-shrink: 0;
     margin-top: 3px;
     letter-spacing: 0.1em;
   }
 
-  .comp-title {
-    font-size: 13.5px;
-    font-weight: 500;
-    color: var(--ink);
-    margin-bottom: 4px;
-    line-height: 1.3;
-  }
-
-  .comp-desc { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+  .comp-title { font-size: 14.5px; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
+  .comp-desc { font-size: 13.5px; color: var(--muted); line-height: 1.65; }
 
   /* COMP BOX */
   .comp-box {
-    background: var(--dark);
+    background: var(--surface2);
     padding: 32px 28px;
     margin-top: 28px;
-    position: relative;
-    overflow: hidden;
+    border: 1px solid var(--rule);
   }
 
-  .comp-box::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 2px;
-    background: linear-gradient(90deg, var(--warm), transparent);
-    opacity: 0.6;
-  }
+  .comp-box + .comp-box { margin-top: 3px; }
 
   .comp-box-label {
     font-family: 'DM Mono', monospace;
     font-size: 8px;
     letter-spacing: 0.22em;
-    color: rgba(184,92,30,0.5);
+    color: var(--muted);
     text-transform: uppercase;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
+    opacity: 0.8;
   }
 
-  .comp-rows { display: flex; flex-direction: column; gap: 0; }
+  .comp-rows { display: flex; flex-direction: column; }
 
   .comp-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 11px 0;
-    border-bottom: 1px solid rgba(184,92,30,0.08);
+    padding: 12px 0;
+    border-bottom: 1px solid var(--rule);
     gap: 16px;
   }
 
   .comp-row:last-child { border-bottom: none; }
 
-  .comp-row-label { font-size: 13px; color: rgba(245,240,232,0.45); flex: 1; }
+  .comp-row-label { font-size: 14px; color: var(--muted); flex: 1; }
+  .comp-row-value { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--warm); text-align: right; flex-shrink: 0; }
 
-  .comp-row-value {
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    color: var(--warm);
-    text-align: right;
-    flex-shrink: 0;
+  .comp-row.total-row {
+    padding-top: 18px;
+    margin-top: 6px;
+    border-top: 2px solid var(--warm);
+    border-bottom: none;
   }
 
-  .comp-row.total-row { padding-top: 16px; margin-top: 4px; border-top: 1px solid rgba(184,92,30,0.2); border-bottom: none; }
   .comp-row.total-row .comp-row-label {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 300;
-    color: var(--cream);
+    color: var(--ink);
   }
+
   .comp-row.total-row .comp-row-value {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: 300;
     color: var(--warm);
   }
 
-  /* CLOSING */
+  /* CLOSING — warm accent */
   .closing {
-    background: var(--dark);
+    background: var(--warm);
     padding: 52px 32px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .closing::before {
-    content: '';
-    position: absolute;
-    top: -60px; right: -60px;
-    width: 280px; height: 280px;
-    background: radial-gradient(circle, rgba(184,92,30,0.05) 0%, transparent 70%);
   }
 
   .closing-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: 300;
-    color: var(--cream);
+    color: #fff;
     line-height: 1.3;
     margin-bottom: 16px;
-    position: relative;
-    z-index: 1;
   }
 
-  .closing-title em { font-style: italic; color: var(--warm); }
+  .closing-title em { font-style: italic; color: rgba(255,255,255,0.7); }
 
   .closing-text {
-    font-size: 13.5px;
+    font-size: 14.5px;
     line-height: 1.85;
-    color: rgba(245,240,232,0.4);
+    color: rgba(255,255,255,0.7);
     margin-bottom: 10px;
-    position: relative;
-    z-index: 1;
     max-width: 520px;
   }
 
@@ -441,26 +391,24 @@
     gap: 14px;
     margin-top: 40px;
     padding-top: 24px;
-    border-top: 1px solid rgba(184,92,30,0.16);
-    position: relative;
-    z-index: 1;
+    border-top: 1px solid rgba(255,255,255,0.25);
   }
 
   .closing-name {
     font-family: 'Cormorant Garamond', serif;
     font-size: 22px;
     font-weight: 300;
-    color: var(--cream);
+    color: #fff;
   }
 
-  .closing-name span { font-style: italic; color: var(--warm); }
+  .closing-name span { font-style: italic; color: rgba(255,255,255,0.7); }
 
   .closing-links { display: flex; flex-direction: column; gap: 3px; }
 
   .closing-links a {
     font-family: 'DM Mono', monospace;
     font-size: 9px;
-    color: rgba(245,240,232,0.25);
+    color: rgba(255,255,255,0.5);
     text-decoration: none;
     letter-spacing: 0.08em;
   }
@@ -501,7 +449,7 @@
     </div>
     <div style="text-align:right;">
       <div class="cover-from-label">Para</div>
-      <div class="cover-from-name" style="font-size:16px; color:rgba(245,240,232,0.4);">Adam & Michelle</div>
+      <div class="cover-from-name" style="font-size:16px; color:var(--muted);">Adam & Michelle</div>
     </div>
   </div>
 </div>
@@ -518,54 +466,50 @@
     <h2 class="section-title">El mercado como <em>referencia</em></h2>
     <p class="body-text">Antes de hablar de números propios, el contexto de mercado para roles equivalentes. Un Strategic Product Partner con especialización en AI no es un perfil genérico — es uno de los roles más escasos y demandados del ecosistema digital actual.</p>
 
-    <div class="market-box">
-      <div class="market-label">Tarifas de mercado · Roles equivalentes · Freelance / Fractional</div>
-      <div class="market-rows">
-
-        <div class="market-row">
-          <div>
-            <div class="market-role">AI Product Architect · Freelance</div>
-            <div class="market-note">Diseño de arquitectura AI, prompts, flujos — sin desarrollo</div>
-          </div>
-          <div class="market-range">$8K–$16K/mes</div>
+    <div class="market-table">
+      <div class="market-header">
+        <span class="market-header-label">Rol · Descripción</span>
+        <span class="market-header-label">Tarifa mensual</span>
+      </div>
+      <div class="market-row">
+        <div>
+          <div class="market-role">AI Product Architect · Freelance</div>
+          <div class="market-note">Diseño de arquitectura AI, prompts, flujos — sin desarrollo incluido</div>
         </div>
-
-        <div class="market-row">
-          <div>
-            <div class="market-role">Fractional CPO · Startup / Scale-up</div>
-            <div class="market-note">Visión de producto, roadmap, decisiones estratégicas</div>
-          </div>
-          <div class="market-range">$5K–$12K/mes</div>
+        <div class="market-range">$8K–$16K</div>
+      </div>
+      <div class="market-row">
+        <div>
+          <div class="market-role">Fractional CPO · Startup / Scale-up</div>
+          <div class="market-note">Visión de producto, roadmap, decisiones estratégicas</div>
         </div>
-
-        <div class="market-row">
-          <div>
-            <div class="market-role">AI Implementation Consultant</div>
-            <div class="market-note">Implementación de soluciones AI en operaciones de negocio</div>
-          </div>
-          <div class="market-range">$4K–$8K/mes</div>
+        <div class="market-range">$5K–$12K</div>
+      </div>
+      <div class="market-row">
+        <div>
+          <div class="market-role">AI Implementation Consultant</div>
+          <div class="market-note">Implementación de soluciones AI en operaciones de negocio</div>
         </div>
-
-        <div class="market-row highlight">
-          <div>
-            <div class="market-role">Liza López · Strategic Product Partner</div>
-            <div class="market-note">Base mensual propuesta · Sin incluir desarrollo ni revenue share</div>
-          </div>
-          <div class="market-range">$4,500/mes</div>
+        <div class="market-range">$4K–$8K</div>
+      </div>
+      <div class="market-row highlight">
+        <div>
+          <div class="market-role">Liza López · Strategic Product Partner</div>
+          <div class="market-note">Base mensual propuesta · Sin incluir desarrollo ni revenue share</div>
         </div>
-
+        <div class="market-range">$4,500/mes</div>
       </div>
     </div>
   </section>
 
-  <!-- 02 RESULTADOS -->
+  <!-- 02 KPIs -->
   <section class="section">
     <div class="section-header">
       <span class="section-num">02</span>
       <div class="section-line"></div>
     </div>
     <h2 class="section-title">Resultados esperados <em>& KPIs</em></h2>
-    <p class="body-text">Mi rol no se mide en actividades diarias ni volumen de llamadas. Se mide en decisiones de producto que funcionan, sistemas que escalan y productos que generan revenue. Estas son las métricas que importan.</p>
+    <p class="body-text">Mi rol no se mide en actividades diarias ni volumen de llamadas. Se mide en decisiones de producto que funcionan, sistemas que escalan y productos que generan revenue.</p>
 
     <div class="kpi-stack">
 
@@ -575,26 +519,26 @@
           <div class="kpi-freq">Continuo</div>
         </div>
         <ul class="kpi-items">
-          <li>Cada iniciativa de AI pasa por un criterio claro antes de invertir recursos — ningún desarrollo se arranca sin Masterplan aprobado</li>
-          <li>Decisiones de herramientas y plataformas tomadas con criterio técnico real, no por intuición</li>
+          <li>Cada iniciativa de AI pasa por un criterio claro antes de invertir recursos — ningún desarrollo arranca sin Masterplan aprobado</li>
+          <li>Decisiones de herramientas y plataformas tomadas con criterio técnico real</li>
           <li>El ecosistema AI del negocio tiene arquitectura documentada y reproducible</li>
         </ul>
       </div>
 
-      <div class="kpi-card">
+      <div class="kpi-card sage">
         <div class="kpi-header">
           <div class="kpi-title">Copiloto Doers™ v2</div>
           <div class="kpi-freq sage">Mayo 2026</div>
         </div>
         <ul class="kpi-items">
           <li class="sage">Demo funcional listo para el 27 de Mayo</li>
-          <li class="sage">Dos chats separados operativos: formación + consulta</li>
-          <li class="sage">Journey digital con métricas de progreso por módulo</li>
-          <li class="sage">Demo grabado y documento de onboarding entregado</li>
+          <li class="sage">Dos chats operativos: formación + consulta</li>
+          <li class="sage">Journey digital con métricas de progreso</li>
+          <li class="sage">Demo grabado y onboarding entregado</li>
         </ul>
       </div>
 
-      <div class="kpi-card">
+      <div class="kpi-card sage">
         <div class="kpi-header">
           <div class="kpi-title">Créetelo® AI</div>
           <div class="kpi-freq sage">Q3 2026</div>
@@ -612,9 +556,9 @@
           <div class="kpi-freq">Semanal</div>
         </div>
         <ul class="kpi-items">
-          <li>Reunión semanal con Adam y Michelle — agenda preparada, decisiones documentadas</li>
-          <li>Criterio disponible vía async L–V para bloqueos de producto</li>
-          <li>Startlab y equipos externos alineados con la visión de producto</li>
+          <li>Reunión semanal con agenda preparada y decisiones documentadas</li>
+          <li>Criterio disponible async L–V para bloqueos de producto</li>
+          <li>Equipos externos alineados con la visión de producto</li>
         </ul>
       </div>
 
@@ -624,7 +568,7 @@
           <div class="kpi-freq">Mensual</div>
         </div>
         <ul class="kpi-items">
-          <li>Presencia activa en sesiones grupales en vivo como co-facilitadora</li>
+          <li>Presencia activa en sesiones grupales en vivo</li>
           <li>Masterclasses de lanzamiento ejecutadas junto a Michelle</li>
           <li>Participantes con claridad y avance real en sus proyectos</li>
         </ul>
@@ -642,55 +586,48 @@
     <h2 class="section-title">Lo que traigo <em>al rol</em></h2>
 
     <div class="comp-stack">
-
       <div class="comp-card">
-        <div class="comp-icon">01</div>
+        <div class="comp-num">01</div>
         <div>
           <div class="comp-title">Criterio técnico + visión de negocio</div>
           <p class="comp-desc">Entiendo cómo funciona la tecnología y cómo impacta al negocio. No construyo por construir — construyo lo que mueve el needle.</p>
         </div>
       </div>
-
       <div class="comp-card">
-        <div class="comp-icon">02</div>
+        <div class="comp-num">02</div>
         <div>
           <div class="comp-title">Contexto profundo del ecosistema</div>
           <p class="comp-desc">Tres años dentro del negocio. Conozco a Michelle, a las Doers, los lanzamientos, los cuellos de botella. No hay curva de aprendizaje.</p>
         </div>
       </div>
-
       <div class="comp-card">
-        <div class="comp-icon">03</div>
+        <div class="comp-num">03</div>
         <div>
           <div class="comp-title">Ejecución real en AI</div>
           <p class="comp-desc">No hablo de AI en teoría. Construí Copiloto Doers™ en producción. Lo uso todos los días en mi propio negocio. Sé qué funciona y qué no.</p>
         </div>
       </div>
-
       <div class="comp-card">
-        <div class="comp-icon">04</div>
+        <div class="comp-num">04</div>
         <div>
           <div class="comp-title">Diseño de experiencia de usuario</div>
           <p class="comp-desc">El producto más poderoso del mundo fracasa si el usuario no lo entiende. Diseño el journey antes de escribir una línea de código.</p>
         </div>
       </div>
-
       <div class="comp-card">
-        <div class="comp-icon">05</div>
+        <div class="comp-num">05</div>
         <div>
-          <div class="comp-title">Trabajo bien en el caos</div>
-          <p class="comp-desc">Negocios en crecimiento son caóticos. Lo sé. Puedo operar con ambigüedad, priorizar bajo presión y entregar igual.</p>
+          <div class="comp-title">Operación bajo presión</div>
+          <p class="comp-desc">Negocios en crecimiento son caóticos. Puedo operar con ambigüedad, priorizar bajo presión y entregar igual.</p>
         </div>
       </div>
-
       <div class="comp-card">
-        <div class="comp-icon">06</div>
+        <div class="comp-num">06</div>
         <div>
           <div class="comp-title">Comunicación ejecutiva</div>
-          <p class="comp-desc">Traduzco entre la visión de los founders y la realidad técnica del equipo. Sin fricción, sin malentendidos, sin retrabajo.</p>
+          <p class="comp-desc">Traduzco entre la visión de los founders y la realidad técnica. Sin fricción, sin malentendidos, sin retrabajo.</p>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -701,10 +638,10 @@
       <div class="section-line"></div>
     </div>
     <h2 class="section-title">Estructura de <em>compensación</em></h2>
-    <p class="body-text">La compensación está estructurada en tres capas — base mensual, desarrollo por proyecto y participación en revenue. Cada capa corresponde a un tipo distinto de aporte.</p>
+    <p class="body-text">Tres capas — base mensual, desarrollo por proyecto y participación en revenue. Cada capa corresponde a un tipo distinto de aporte.</p>
 
     <div class="comp-box">
-      <div class="comp-box-label">Desglose mensual recurrente</div>
+      <div class="comp-box-label">Base mensual recurrente</div>
       <div class="comp-rows">
         <div class="comp-row">
           <span class="comp-row-label">Strategic Product Partner</span>
@@ -729,24 +666,23 @@
       </div>
     </div>
 
-    <div class="comp-box" style="margin-top:3px; background:var(--surface2);">
-      <div class="comp-box-label" style="color:var(--muted);">Desarrollo & revenue — por proyecto</div>
+    <div class="comp-box" style="margin-top:3px;">
+      <div class="comp-box-label">Desarrollo & revenue — por proyecto</div>
       <div class="comp-rows">
         <div class="comp-row">
-          <span class="comp-row-label" style="color:var(--muted);">Copiloto Doers™ v2 — demo 27 Mayo</span>
-          <span class="comp-row-value" style="color:var(--warm);">$3,000 único</span>
+          <span class="comp-row-label">Copiloto Doers™ v2 — demo 27 Mayo</span>
+          <span class="comp-row-value">$3,000 único</span>
         </div>
         <div class="comp-row">
-          <span class="comp-row-label" style="color:var(--muted);">Créetelo® AI — desarrollo</span>
-          <span class="comp-row-value" style="color:var(--warm);">Desde $3,000</span>
+          <span class="comp-row-label">Créetelo® AI — desarrollo</span>
+          <span class="comp-row-value">Desde $3,000</span>
         </div>
-        <div class="comp-row">
-          <span class="comp-row-label" style="color:var(--muted);">Revenue share por producto desarrollado</span>
+        <div class="comp-row" style="border-bottom:none;">
+          <span class="comp-row-label">Revenue share por producto desarrollado</span>
           <span class="comp-row-value" style="color:var(--sage);">10% mensual</span>
         </div>
       </div>
     </div>
-
   </section>
 
 </div>
